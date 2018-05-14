@@ -29,8 +29,24 @@ function getResults() {
   };
   $.getJSON(url, settings, function(data){
     console.log(data);
-  })
-};
+  });
+}
+
+//========================    getResults function with .ajax() call - not working
+// function getResults() {
+//   console.log(STATE);
+//   const settings = {
+//     url: STATE.endpoint,
+//     key: STATE.apiKey,
+//     part: ‘snippet’,
+//     q: STATE.query,
+//     maxresults: 5,
+//     success: function(data) {
+//       console.log(data);
+//     }
+//   };
+//   $.ajax(settings);
+//  }
 
 
 
