@@ -18,18 +18,26 @@ function handleUserInputs() {
 }
 
 function getResults() {
-  console.log(STATE);
-  const url = STATE.endpoint;
   const settings = {
-    key: STATE.apiKey,
-    part: 'snippet',
-    q: STATE.query,
-    maxresults: 5,
+    data: {
+      q: STATE.query,
+      part: 'snippet',
+      key: STATE.apiKey,
+      maxresults: 5
+    },
+    url: STATE.endpoint,
     dataType: 'json',
+    success: function(data){
+      console.log(data);
+    },
+    error: function(error) {
+      console.log(error);
+    }
   };
-  $.getJSON(url, settings, function(data){
-    console.log(data);
-  });
+  // $.getJSON(url, settings, function(data){
+  //   console.log(data);
+  // });
+  $.ajax(settings);
 }
 
 //========================    getResults function with .ajax() call - not working
@@ -45,8 +53,10 @@ function getResults() {
 //       console.log(data);
 //     }
 //   };
-//   $.ajax(settings);
-//  }
+// $.getJSON(url, settings, function(data){
+//   console.log(data);
+// });
+// }
 
 
 
